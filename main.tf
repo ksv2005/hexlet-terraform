@@ -19,3 +19,24 @@ variable "do_token" {}
 provider "digitalocean" {
   token = var.do_token
 }
+
+// Пример взят из документации
+// web - произвольное имя ресурса
+resource "digitalocean_droplet" "web1" {
+  image  = "ubuntu-18-04-x64"
+  // Имя внутри Digital Ocean
+  // Задается для удобства просмотра в веб-интерфейсе
+  name   = "web-1"
+  // Регион, в котором располагается датацентр
+  // Выбирается по принципу близости к клиентам
+  region = "ams3"
+  // Тип сервера, от этого зависит его мощность и стоимость
+  size   = "s-1vcpu-1gb"
+}
+
+resource "digitalocean_droplet" "web2" {
+  image  = "ubuntu-18-04-x64"
+  name   = "web-2"
+  region = "ams3"
+  size   = "s-1vcpu-1gb"
+}
